@@ -14,7 +14,7 @@ setuptools.setup(
     url="https://github.com/thodson-usgs/stf-decomposition",
     author="Timothy O. Hodson",
     author_email="thodson@usgs.gov",
-    license="MIT",
+    license="CC0",
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
