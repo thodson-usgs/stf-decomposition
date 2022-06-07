@@ -22,7 +22,7 @@ bibliography: paper.bib
 ---
 
 # Summary
-Seasonal-Trend Decomposition is a commonly used to break time series data into distinct seasonal, trend, and residual components.
+Seasonal-Trend Decomposition are commonly used to break time series data into distinct seasonal, trend, and residual components.
 By breaking time series data into these distinct components it is easier to distinguish the underlying patterns of the data associated with long-term trends or associated with short-term seasonal fluctuations. 
 # Statement of Need
 Seasonal-Trend Decompositions are widely used across a variety of fields. 
