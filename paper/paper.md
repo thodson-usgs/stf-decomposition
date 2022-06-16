@@ -37,6 +37,7 @@ With the STF() python library, fast and accurate seasonal-trend decompositions c
 # Example
 A time series data set of historical CO2 emission rates was used as an example input for stf_decomposition(). 
 The seasonal, trend, and residual decompositions can be seen in the figure below.
+
 ![CO2 Example](Example.png)
 
 # How It Works
