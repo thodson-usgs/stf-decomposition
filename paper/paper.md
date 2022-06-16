@@ -35,8 +35,13 @@ The Seasonal-Trend decomposition using the Fast Fourier transform allows for dec
 With the STF() python library, fast and accurate seasonal-trend decompositions can be computed even with very large time series datasets. 
 
 # Example
-A time series data set of historical CO2 emission rates was used as an example input for stf_decomposition(). 
-The seasonal, trend, and residual decompositions can be seen in the figure below.
+A time series data set of historical CO2 emission rates was used as an example input for stf_decomposition.
+The first step in the stf_decomposition workflow is to create an stf_decomposition object.
+For this example the inputs to create the stf_decomposition object were the CO2 data set, 
+a window specification of "Blackman", and a seasonal adjuster of 13.
+After the stf_decomposition object is created, you can call the fit() method that will compute the individual decomposed signal components.
+The plot() method was then called on the fitted object which plotted the seasonal, trend, and residual decompositions as well as the original data. 
+From the plots, we can see that the long-term, linear upward trend has been extracted from the oscillating seasonal trends. 
 
 ![CO2 Example](Example.png)
 
