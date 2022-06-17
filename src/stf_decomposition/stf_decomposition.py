@@ -82,6 +82,6 @@ class stf_decomposition:
         # Find the residuals 
         resid = pd.Series(self.observed - ffilt_seasonal.real - ffilt.real, self.data.index, name = "resid")
         
-        from statsmodels.tsa.seasonal import DecomposeResult
-        return DecomposeResult(self._observed, season, trend, resid)
+        import statsmodels.tsa.seasonal 
+        return statsmodels.tsa.seasonal.DecomposeResult(self._observed, season, trend, resid)
 
