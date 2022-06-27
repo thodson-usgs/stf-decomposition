@@ -10,7 +10,10 @@ class stf_decomposition:
 
     # init method or constructor 
     def __init__(self, data, window, period = None, seasonal = None):
-        self.data = data
+        if isinstance(data, pd.DataFrame):
+            self.data = data
+        else:
+            raise ValueError("data input must be of type pd.DataFrame or pd.Series")
         self.observed = pd.Series(self.data.squeeze(), self.data.index)
         self.window = window
         if period is None:
