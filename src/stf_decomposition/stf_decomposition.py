@@ -9,7 +9,7 @@ import copy
 class stf_decomposition:
 
     # init method or constructor 
-    def __init__(self, data, window, period = None, pad = None, seasonal = None):
+    def __init__(self, data, window, period = None, seasonal = None):
         self.data = data
         self.observed = pd.Series(self.data.squeeze(), self.data.index)
         self.window = window
@@ -22,7 +22,6 @@ class stf_decomposition:
             period = freq_to_period(freq)
         self.period = period
         self._observed = data
-        self.pad = pad
         if seasonal is not None:
             if seasonal % 2 == 0 or seasonal < 3:
                 raise ValueError("seasonal must be an odd positive integer >= 3")
@@ -48,7 +47,7 @@ class stf_decomposition:
         self.fhat_seasonal = copy.copy(self.fhat)
 
         if self.window == "tukey":
-            window = signal.tukey(n, alpha = self.pad)
+            window = signal.tukey(n)
         else:
             window = get_window(self.window, n)
         
