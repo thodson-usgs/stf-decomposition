@@ -1,4 +1,5 @@
 from ast import parse
+from unicodedata import decomposition
 import numpy as np
 import unittest
 import pandas as pd
@@ -25,7 +26,13 @@ class TestFit(unittest.TestCase):
         stf_2 = stf_decomposition(data, "blackman", seasonal = 13)
         res_2 = stf_2.fit()
         tm.assert_series_equal(res_1.trend, res_2.trend) and tm.assert_series_equal(res_1.seasonal, res_2.seasonal) and tm.assert_series_equal(res_1.resid, res_2.resid)
-
+    # This will test if the sum of the decomposed components is equal to the observed data
+    def test_decompositions_equal_observed(self):
+        data = pd.read_csv("tests/data/co2.csv", index_col = 'date', parse_dates=True)
+        stf = stf_decomposition(data, "blackman", seasonal = 13)
+        res = stf.fit()
+        decompositions_sum = res.trend + res.seasonal + res.resid
+        tm.assert_series_equal(decompositions_sum, stf.observed, check_names = False)
 
 
 
