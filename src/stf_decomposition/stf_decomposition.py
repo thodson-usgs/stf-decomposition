@@ -15,6 +15,10 @@ class stf_decomposition:
         else:
             raise ValueError("data input must be of type pd.DataFrame or pd.Series")
         self.observed = pd.Series(self.data.squeeze(), self.data.index)
+        try:
+            get_window(window, len(data))
+        except(ValueError):
+            raise ValueError("Unknown window type: window input must be compatible with scipy.signal.get_window")
         self.window = window
         if period is None:
             freq = None
@@ -49,10 +53,7 @@ class stf_decomposition:
         self.fhat = np.fft.fft(reflected, n)
         self.fhat_seasonal = copy.copy(self.fhat)
 
-        if self.window == "tukey":
-            window = signal.tukey(n)
-        else:
-            window = get_window(self.window, n)
+        window = get_window(self.window, n)
         
         # X axis of freqs
         self.freq = (1 / (dt*n)) * np.arange(n)
