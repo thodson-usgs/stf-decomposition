@@ -32,5 +32,22 @@ class TestConstructor(unittest.TestCase):
         data = pd.read_csv("tests/data/co2.csv", index_col = 'date', parse_dates=True)
         with self.assertRaises(ValueError):
             stf_decomposition(data, "blackman", seasonal = 12)
+    # This will test that an error is thrown if an invalid window is input
+    def test_invalid_window(self):
+        data = pd.read_csv("tests/data/co2.csv", index_col = 'date', parse_dates=True)
+        with self.assertRaises(ValueError):
+            stf_decomposition(data, "normal", seasonal = 13)
+    # This will test that all compatible windows with scipy.signal.get_window work as expected
+    def test_valid_windows(self):
+        data = pd.read_csv("tests/data/co2.csv", index_col = 'date', parse_dates=True)
+        windows = ['boxcar', 'triang', 'blackman', 'hamming', 'hann', 'bartlett', 
+        'flattop', 'parzen', 'bohman', 'blackmanharris', 'nuttall', 'barthann', 
+        'cosine', 'exponential', 'tukey', 'taylor']
+        for window in windows:
+            try:
+                stf_decomposition(data, window, seasonal = 13)
+            except(ValueError):
+                self.fail(f"Window {window} did not work as expected")
+
 
         
