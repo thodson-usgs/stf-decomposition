@@ -3,6 +3,7 @@ import numpy as np
 import unittest
 import pandas as pd
 import sys
+from pandas import testing as tm
 
 sys.path.append('src')
 
@@ -16,6 +17,15 @@ class TestFit(unittest.TestCase):
         res = stf.fit()
         trend_slope = np.polyfit(res.trend.index, res.trend, 1)[0]
         self.assertEqual(trend_slope, 0)
+    # This will test if two independent runs of the same argument inputs will yield equal results
+    def test_multiple_calls(self):
+        data = pd.read_csv("tests/data/co2.csv", index_col='date', parse_dates=True)
+        stf_1 = stf_decomposition(data, "blackman", seasonal = 13)
+        res_1 = stf_1.fit()
+        stf_2 = stf_decomposition(data, "blackman", seasonal = 13)
+        res_2 = stf_2.fit()
+        tm.assert_series_equal(res_1.trend, res_2.trend) and tm.assert_series_equal(res_1.seasonal, res_2.seasonal) and tm.assert_series_equal(res_1.resid, res_2.resid)
+
 
 
 
