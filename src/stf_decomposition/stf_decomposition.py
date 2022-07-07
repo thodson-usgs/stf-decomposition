@@ -29,11 +29,6 @@ class stf_decomposition:
             period = freq_to_period(freq)
         self.period = period
         self._observed = data
-        if seasonal is not None:
-            if seasonal % 2 == 0 or seasonal < 3:
-                raise ValueError("seasonal must be an odd positive integer >= 3")
-            else:
-                seasonal = 3
         self.seasonal = seasonal
      
     def fit(self):        
