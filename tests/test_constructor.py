@@ -27,11 +27,6 @@ class TestConstructor(unittest.TestCase):
         data = pd.read_csv("tests/data/co2.csv", index_col = 'date')
         with self.assertRaises(ValueError):
             stf_decomposition(data, "blackman")
-    # This will test if an error is thrown when an even seasonal input is given 
-    def test_even_seasonal_input(self):
-        data = pd.read_csv("tests/data/co2.csv", index_col = 'date', parse_dates=True)
-        with self.assertRaises(ValueError):
-            stf_decomposition(data, "blackman", seasonal = 12)
     # This will test that an error is thrown if an invalid window is input
     def test_invalid_window(self):
         data = pd.read_csv("tests/data/co2.csv", index_col = 'date', parse_dates=True)
