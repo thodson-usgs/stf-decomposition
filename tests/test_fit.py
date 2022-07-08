@@ -8,7 +8,7 @@ from pandas import testing as tm
 
 sys.path.append('src')
 
-from stf_decomposition.stf_decomposition import stf_decomposition
+from stf_decomposition import stf_decomposition
 
 class TestFit(unittest.TestCase):
     # This will test if an array of constant values are input as the signal data that the trend decomposition will have a slope of zero 

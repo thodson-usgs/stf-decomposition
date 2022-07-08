@@ -6,7 +6,7 @@ import sys
 
 sys.path.append('src')
 
-from stf_decomposition.stf_decomposition import stf_decomposition
+from stf_decomposition import stf_decomposition
 
 class TestConstructor(unittest.TestCase):
     # stf_decomposition expects a data frame with an index

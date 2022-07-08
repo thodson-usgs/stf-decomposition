@@ -1,0 +1,26 @@
+sources:
+  
+  air_passengers:
+    description: 'TODO'
+    driver: csv
+    args:
+      urlpath: 'https://raw.githubusercontent.com/thodson-usgs/stf-decomposition/main/data/AirPassengers.csv'
+      
+  co2:
+    description: 'TODO'
+    driver: csv
+    args:
+      urlpath: 'https://raw.githubusercontent.com/thodson-usgs/stf-decomposition/main/data/co2.csv'
+
+  covid_usa:
+    description: 'TODO'
+    driver: csv
+    args:
+      urlpath: 'https://raw.githubusercontent.com/thodson-usgs/stf-decomposition/main/data/time_series_covid19_confirmed_US.csv'
+
+  retail_sales:
+    description: 'TODO'
+    driver: csv
+    args:
+      urlpath: 'https://raw.githubusercontent.com/thodson-usgs/stf-decomposition/main/data/RetailSales.csv'
+
