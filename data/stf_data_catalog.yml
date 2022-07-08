@@ -1,0 +1,7 @@
+sources:
+  
+  co2:
+    description: 'CO2 timeseries'
+    driver: csv
+    args:
+      urlpath: 'https://raw.githubusercontent.com/thodson-usgs/stf-decomposition/main/data/co2.csv'
