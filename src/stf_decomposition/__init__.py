@@ -1,1 +1,1 @@
-from .stf-decomposition import stf_decomposition
+from .stf_decomposition import stf_decomposition
