@@ -9,6 +9,10 @@ pip install stf-decomposition
 The package is tested on Python 3.7, 3.8 and 3.9.
 
 # Getting Started
+In order to use stf_decomposition you will need a time series dataset of type pandas DataFrame or pandas Series. You will also need to specify the following input variables:
+- window: A window function for use during the Fast Fourier transoform process to reduce spectral leakage. The possible window functions to be inputs can be found in the get_window scipy documentation. 
+- period: An integer indicating the period of the time series input data. The period must be specified by the user if the input data does not already have period. 
+
 
 # Example
 
