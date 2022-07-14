@@ -4,6 +4,7 @@ from scipy import signal
 from scipy.signal import get_window
 from statsmodels.tsa.tsatools import freq_to_period
 import copy
+from scipy.optimize import brute
 
 
 class stf_decomposition:
@@ -30,6 +31,15 @@ class stf_decomposition:
         self.period = period
         self._observed = data
         self.seasonal = seasonal
+
+    def seasonal_function(self, x):
+        filter_cutoff = 1.5*(1/x)*(1/self.period)
+        fhat_result = np.where(self.freq >= filter_cutoff, 0, self.fhat)
+        # Filter freqs for seasonal (high pass filter)
+        fhat_seasonal_result = np.where(self.freq < filter_cutoff, 0, self.fhat_seasonal)
+        # Find pearsonr from fhat and fhat_seasonal
+        corr = np.corrcoef(fhat_result.real, fhat_seasonal_result.real)[0][1]
+        return abs(corr)
      
     def fit(self):        
         dt = 1 / (self.period)
@@ -58,13 +68,21 @@ class stf_decomposition:
         # Apply window to freqs
         self.freq = self.freq*window
 
+        
         # Filter freqs for trend (low pass filter from Celevaland 1990) 
-        filter_cutoff = 1.5*(1/self.seasonal)*(1/self.period)
+        if self.seasonal != None:
+            filter_cutoff = 1.5*(1/self.seasonal)*(1/self.period)
+            self.fhat[self.freq >= filter_cutoff] = 0
+            # Filter freqs for seasonal (high pass filter)
+            self.fhat_seasonal[self.freq < filter_cutoff] = 0
+        else:
+            self.seasonal = brute(self.seasonal_function, ranges = ((3, 100),))
+            filter_cutoff = 1.5*(1/self.seasonal)*(1/self.period)
+            self.fhat[self.freq >= filter_cutoff] = 0
+            # Filter freqs for seasonal (high pass filter)
+            self.fhat_seasonal[self.freq < filter_cutoff] = 0
 
-        self.fhat[self.freq >= filter_cutoff] = 0
-        # Filter freqs for seasonal (high pass filter)
-        self.fhat_seasonal[self.freq < filter_cutoff] = 0
-
+        
         # Inverse FFT for filtered time signal
         ffilt = np.fft.ifft(self.fhat)
         ffilt_seasonal = np.fft.ifft(self.fhat_seasonal)
