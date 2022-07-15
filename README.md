@@ -35,7 +35,7 @@ and plotting the decomposed components.
 
 1. Read in time series data as a pandas DataFrame or Series
 ```
-import stf_decomposition
+from stf_decomposition import STF
 
 data = pd.read_csv('data/AirPassengers.csv', index_col = "Month", parse_dates=True, squeeze=True)
 ```
