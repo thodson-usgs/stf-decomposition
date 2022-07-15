@@ -7,7 +7,7 @@ import copy
 from scipy.optimize import brute
 
 
-class stf_decomposition:
+class STF:
 
     # init method or constructor 
     def __init__(self, data, window, period = None, seasonal = None):
