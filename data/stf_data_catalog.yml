@@ -1,7 +1,7 @@
 sources:
   
   air_passengers:
-    description: 'TODO'
+    description: 'Monthly totals of air passengers in the US from 1949 to 1960. Accessed from: https://www.kaggle.com/datasets/chirag19/air-passengers'
     driver: csv
     args:
       urlpath: 'https://raw.githubusercontent.com/thodson-usgs/stf-decomposition/main/data/AirPassengers.csv'
@@ -19,7 +19,7 @@ sources:
       urlpath: 'https://raw.githubusercontent.com/thodson-usgs/stf-decomposition/main/data/time_series_covid19_confirmed_US.csv'
 
   retail_sales:
-    description: 'TODO'
+    description: 'Monthly sales for retail trade and food services in US unadjusted for seasonal variation. Accessed from: https://www.kaggle.com/datasets/landlord/usa-monthly-retail-trade?select=SeriesReport-Not+Seasonally+Adjusted+Sales+-+Monthly+%28Millions+of+Dollars%29.csv'
     driver: csv
     args:
       urlpath: 'https://raw.githubusercontent.com/thodson-usgs/stf-decomposition/main/data/RetailSales.csv'
