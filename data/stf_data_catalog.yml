@@ -19,7 +19,7 @@ sources:
       urlpath: 'https://raw.githubusercontent.com/thodson-usgs/stf-decomposition/main/data/time_series_covid19_confirmed_US.csv'
 
   retail_sales:
-    description: 'Monthly sales for retail trade and food services in US unadjusted for seasonal variation. Accessed from: https://www.kaggle.com/datasets/landlord/usa-monthly-retail-trade?select=SeriesReport-Not+Seasonally+Adjusted+Sales+-+Monthly+%28Millions+of+Dollars%29.csv'
+    description: 'Advanced estimates of monthly sales in millions of dollars for retail trade in the US. Accessed from: https://fred.stlouisfed.org/series/RSXFSN'
     driver: csv
     args:
       urlpath: 'https://raw.githubusercontent.com/thodson-usgs/stf-decomposition/main/data/RetailSales.csv'
