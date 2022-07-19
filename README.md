@@ -1,5 +1,6 @@
-# stf_decomposition
-stf_decomposition: Seasonal-Trend decomposition using the Fast Fourier transform
+
+# Seasonal-Trend decomposition using the Fast Fourier transform
+[![DOI](https://zenodo.org/badge/434347012.svg)](https://zenodo.org/badge/latestdoi/434347012)
 
 # Installation
 Installing stf_deocmposition can be done with pip installation syntax
