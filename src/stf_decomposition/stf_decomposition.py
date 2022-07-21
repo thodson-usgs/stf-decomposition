@@ -77,6 +77,7 @@ class STF:
             self.fhat_seasonal[self.freq < filter_cutoff] = 0
         else:
             self.seasonal = float(minimize_scalar(self.seasonal_function, bounds = [3, 100], method = "bounded").x)
+            print(self.seasonal)
             filter_cutoff = 1.5*(1/self.seasonal)*(1/self.period)
             self.fhat[self.freq >= filter_cutoff] = 0
             # Filter freqs for seasonal (high pass filter)
