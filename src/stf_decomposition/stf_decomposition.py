@@ -4,7 +4,7 @@ from scipy import signal
 from scipy.signal import get_window
 from statsmodels.tsa.tsatools import freq_to_period
 import copy
-from scipy.optimize import brute
+from scipy.optimize import minimize_scalar
 
 
 class STF:
@@ -76,7 +76,7 @@ class STF:
             # Filter freqs for seasonal (high pass filter)
             self.fhat_seasonal[self.freq < filter_cutoff] = 0
         else:
-            self.seasonal = brute(self.seasonal_function, ranges = ((3, 100),))
+            self.seasonal = float(minimize_scalar(self.seasonal_function, bounds = [3, 100], method = "bounded").x)
             filter_cutoff = 1.5*(1/self.seasonal)*(1/self.period)
             self.fhat[self.freq >= filter_cutoff] = 0
             # Filter freqs for seasonal (high pass filter)
