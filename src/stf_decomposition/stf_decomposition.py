@@ -76,7 +76,7 @@ class STF:
             # Filter freqs for seasonal (high pass filter)
             self.fhat_seasonal[self.freq < filter_cutoff] = 0
         else:
-            self.seasonal = brute(self.seasonal_function, ranges = ((4, 100),))
+            self.seasonal = brute(self.seasonal_function, ranges = ((3, 100),))
             filter_cutoff = 1.5*(1/self.seasonal)*(1/self.period)
             self.fhat[self.freq >= filter_cutoff] = 0
             # Filter freqs for seasonal (high pass filter)
