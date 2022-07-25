@@ -54,7 +54,7 @@ res = stf.fit()
 # View decomposed components
 print(res.trend.head())
 print(res.seasonal.head())
-print(res.residual.head())
+print(res.resid.head())
 ```
 4. Plot the trend, seasonal, and residual components 
 ```
