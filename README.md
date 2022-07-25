@@ -60,6 +60,7 @@ print(res.residual.head())
 ```
 fig = res.plot()
 ```
+This example as well as more detailed code walkthroughs can be found in this [Google Colab Jupyter Notebook] (https://colab.research.google.com/github/thodson-usgs/stf-decomposition/blob/main/notebooks/stf-decomposition-demo.ipynb).
 
 # Testing
 The package include a test suite that can be run in the main directory using the pystest library
