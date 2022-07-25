@@ -7,7 +7,7 @@ sources:
       urlpath: 'https://raw.githubusercontent.com/thodson-usgs/stf-decomposition/main/data/AirPassengers.csv'
       
   co2:
-    description: 'TODO'
+    description: 'Monthly Atmospheric CO2 emissisions from January 1959 to December 1987'
     driver: csv
     args:
       urlpath: 'https://raw.githubusercontent.com/thodson-usgs/stf-decomposition/main/data/co2.csv'
