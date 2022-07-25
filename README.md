@@ -32,7 +32,7 @@ stf = STF(co2, "blackman")
 # Example
 This demonstration will walkthrough the complete process of reading in data,
 creating an `STF` object, fitting the object, 
-and plotting the decomposed components.
+and plotting the decomposed components.This example as well as more detailed code walkthroughs can be found in this [Google Colab Jupyter Notebook](https://colab.research.google.com/github/thodson-usgs/stf-decomposition/blob/main/notebooks/stf-decomposition-demo.ipynb).
 
 1. Read in time series data as a pandas DataFrame or Series
 ```
@@ -60,7 +60,7 @@ print(res.residual.head())
 ```
 fig = res.plot()
 ```
-This example as well as more detailed code walkthroughs can be found in this [Google Colab Jupyter Notebook] (https://colab.research.google.com/github/thodson-usgs/stf-decomposition/blob/main/notebooks/stf-decomposition-demo.ipynb).
+
 
 # Testing
 The package include a test suite that can be run in the main directory using the pystest library
