@@ -60,6 +60,7 @@ print(res.resid.head())
 ```
 fig = res.plot()
 ```
+![](Example.png)
 
 
 # Testing
